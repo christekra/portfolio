@@ -61,7 +61,7 @@ const Projects = () => {
       icon: FaMoneyBillWave,
       stack: 'Full Stack Laravel',
       screenshots: [
-        'screenshots/fund1.png',
+        'screenshots/Fund1.png',
         'screenshots/fund2.png',
         'screenshots/fund3.png',
         'screenshots/fund4.png',
