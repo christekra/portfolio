@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# 👨‍💻 Portfolio - Christ Ekra
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🚀 Développeur Web Full Stack
 
-## Available Scripts
+Portfolio professionnel présentant mes compétences en développement web, mes projets et mon expérience.
 
-In the project directory, you can run:
+### 🌐 Portfolio en ligne
+**https://christekra.github.io/portfolio**
 
-### `npm start`
+### 🛠️ Technologies Utilisées
+- **Frontend** : React.js, JavaScript (ES6+), HTML5 & CSS3
+- **Icons** : React Icons
+- **Contact** : EmailJS pour le formulaire de contact
+- **Déploiement** : GitHub Pages
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 📋 Sections du Portfolio
+- **Hero** : Présentation personnelle
+- **À propos** : Mon parcours et compétences
+- **Compétences** : Technologies maîtrisées
+- **Projets** : Réalisations et démonstrations
+- **Centres d'intérêt** : Passions et hobbies
+- **Contact** : Formulaire de contact fonctionnel
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📧 Contact
+- **Email** : chtistekra@gmail.com
+- **Téléphone** : +225 07 14 42 50 34
+- **Localisation** : Abidjan, Côte d'Ivoire
 
-### `npm test`
+### 📄 CV
+[Télécharger mon CV](cv.pdf)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 🚀 Installation et Développement
 
-### `npm run build`
+```bash
+# Cloner le repository
+git clone https://github.com/christekra/portfolio.git
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# Aller dans le dossier
+cd portfolio
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# Installer les dépendances
+npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+# Lancer en mode développement
+npm start
 
-### `npm run eject`
+# Créer un build de production
+npm run build
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# Déployer sur GitHub Pages
+npm run deploy
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🎨 Fonctionnalités
+- ✅ **Design responsive** : Compatible mobile, tablette et desktop
+- ✅ **Formulaire de contact** : Envoi d'emails via EmailJS
+- ✅ **Navigation fluide** : Scroll smooth entre les sections
+- ✅ **Animations** : Transitions et effets visuels
+- ✅ **Performance optimisée** : Chargement rapide
+- ✅ **SEO friendly** : Métadonnées optimisées
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 📱 Compatibilité
+- ✅ Chrome, Firefox, Safari, Edge
+- ✅ Mobile (iOS, Android)
+- ✅ Tablettes
+- ✅ Desktop
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🔧 Configuration EmailJS
+Le formulaire de contact utilise EmailJS avec :
+- **Service ID** : `service_tx0rv3q`
+- **Template ID** : `template_wjuqlmh`
+- **Public Key** : Configurée dans le code
 
-## Learn More
+### 🎯 Objectifs
+Ce portfolio a été conçu pour :
+- Présenter mes compétences techniques
+- Démontrer mes projets réalisés
+- Faciliter le contact avec les recruteurs
+- Montrer ma capacité à créer des applications web modernes
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 📈 Évolutions Futures
+- [ ] Ajout de nouveaux projets
+- [ ] Blog technique
+- [ ] Section témoignages clients
+- [ ] Intégration d'un CMS
+- [ ] Optimisations SEO avancées
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+**Développé avec ❤️ par Christ Ekra**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+*Dernière mise à jour : Août 2024*
