@@ -125,7 +125,7 @@ const Contact = () => {
                 <div className="contact-details">
                   <h4>CV</h4>
                   <a 
-                    href="/cv.pdf" 
+                    href="cv.pdf" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     download="cv.pdf"

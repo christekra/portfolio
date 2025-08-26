@@ -12,12 +12,12 @@ const Hero = () => {
   // Pour changer la photo, remplacez le chemin ci-dessous :
   // - Photo locale : "/votre-photo.jpg" (placez le fichier dans public/)
   // - URL externe : "https://votre-url.com/photo.jpg"
-  const profilePhotoSrc = "/photo-profil.png";
+  const profilePhotoSrc = "photo-profil.png";
   
   // Pour changer le CV, remplacez le chemin ci-dessous :
   // - CV local : "/votre-cv.pdf" (placez le fichier dans public/)
   // - URL externe : "https://votre-url.com/cv.pdf"
-  const cvSrc = "/cv.pdf";
+  const cvSrc = "cv.pdf";
 
   return (
     <section className="hero">

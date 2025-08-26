@@ -61,11 +61,11 @@ const Projects = () => {
       icon: FaMoneyBillWave,
       stack: 'Full Stack Laravel',
       screenshots: [
-        '/screenshots/fund1.png',
-        '/screenshots/fund2.png',
-        '/screenshots/fund3.png',
-        '/screenshots/fund4.png',
-        '/screenshots/fund5.png'
+        'screenshots/fund1.png',
+        'screenshots/fund2.png',
+        'screenshots/fund3.png',
+        'screenshots/fund4.png',
+        'screenshots/fund5.png'
       ]
     },
     {
@@ -76,10 +76,10 @@ const Projects = () => {
       icon: FaClock,
       stack: 'React + Laravel',
       screenshots: [
-        '/screenshots/mdp1.png',
-        '/screenshots/mdp2.png',
-        '/screenshots/mdp3.png',
-        '/screenshots/mdp4.png'
+        'screenshots/mdp1.png',
+        'screenshots/mdp2.png',
+        'screenshots/mdp3.png',
+        'screenshots/mdp4.png'
       ]
     },
     {
@@ -90,11 +90,11 @@ const Projects = () => {
       icon: FaUtensils,
       stack: 'React + Laravel',
       screenshots: [
-        '/screenshots/food1.png',
-        '/screenshots/food2.png',
-        '/screenshots/food3.png',
-        '/screenshots/food4.png',
-        '/screenshots/food5.png'
+        'screenshots/food1.png',
+        'screenshots/food2.png',
+        'screenshots/food3.png',
+        'screenshots/food4.png',
+        'screenshots/food5.png'
       ]
     }
   ];
