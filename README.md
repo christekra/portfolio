@@ -89,4 +89,4 @@ Ce portfolio a été conçu pour :
 
 **Développé avec ❤️ par Christ Ekra**
 
-*Dernière mise à jour : Août 2024*
+*Dernière mise à jour : Août 2025*
