@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   FaMoneyBillWave, FaClock, FaUtensils, 
-  FaExternalLinkAlt, FaGithub, FaTimes, FaChevronLeft, FaChevronRight
+  FaTimes, FaChevronLeft, FaChevronRight
 } from 'react-icons/fa';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Projects.css';

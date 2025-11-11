@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   FaLaravel, FaReact, FaAngular, FaPhp, FaJs, 
-  FaHtml5, FaCss3Alt, FaDatabase, FaGitAlt, 
+  FaHtml5, FaGitAlt, 
   FaDocker, FaGithub, FaShieldAlt 
 } from 'react-icons/fa';
 import { SiC, SiMysql, SiPostgresql, SiMongodb, SiRedis, SiTailwindcss, SiBootstrap } from 'react-icons/si';

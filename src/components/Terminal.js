@@ -77,10 +77,10 @@ const Terminal = ({ onComplete }) => {
 
   useEffect(() => {
     if (currentCommandIndex >= terminalCommands.length) {
-      setTimeout(() => {
+      const confirmTimer = setTimeout(() => {
         setShowConfirmation(true);
       }, 800);
-      return;
+      return () => clearTimeout(confirmTimer);
     }
 
     const command = terminalCommands[currentCommandIndex];
@@ -120,7 +120,7 @@ const Terminal = ({ onComplete }) => {
 
       return () => clearTimeout(outputTimer);
     }
-  }, [currentCommandIndex]);
+  }, [currentCommandIndex, terminalCommands]);
 
   useEffect(() => {
     // Auto-scroll vers le bas
