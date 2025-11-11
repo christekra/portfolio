@@ -1,0 +1,482 @@
+.guide-container {
+  position: fixed !important;
+  bottom: 30px;
+  right: 30px;
+  z-index: 2147483647 !important; /* Maximum z-index value */
+  opacity: 0;
+  transform: translateY(20px) scale(0.9);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  pointer-events: none;
+  isolation: isolate !important;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  contain: none !important;
+  overflow: visible !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+.guide-container.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+/* Avatar Codey - Sphère lumineuse */
+.codey-avatar {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  z-index: 2147483647 !important;
+}
+
+.codey-sphere {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #7366FF 0%, #8B7FFF 50%, #7366FF 100%);
+  background-size: 200% 200%;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  box-shadow: none;
+  animation: gradientShift 6s ease-in-out infinite;
+  overflow: hidden;
+  z-index: 2147483647 !important;
+}
+
+@keyframes gradientShift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Visage numérique */
+.codey-face {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60%;
+  height: 60%;
+  z-index: 2;
+}
+
+.codey-eye {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background: #fff;
+  border-radius: 50%;
+  top: 30%;
+  animation: blink 4s infinite;
+  box-shadow: none;
+}
+
+.codey-eye-left {
+  left: 25%;
+}
+
+.codey-eye-right {
+  right: 25%;
+}
+
+.eye-pupil {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  background: #0a0a1a;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: eyeMove 6s ease-in-out infinite;
+}
+
+@keyframes eyeMove {
+  0%, 100% {
+    transform: translate(-50%, -50%);
+  }
+  25% {
+    transform: translate(-30%, -50%);
+  }
+  50% {
+    transform: translate(-50%, -30%);
+  }
+  75% {
+    transform: translate(-70%, -50%);
+  }
+}
+
+@keyframes blink {
+  0%, 90%, 100% {
+    height: 12px;
+  }
+  92%, 98% {
+    height: 2px;
+  }
+}
+
+.codey-mouth {
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-top: none;
+  border-radius: 0 0 20px 20px;
+  animation: smile 3s ease-in-out infinite;
+}
+
+@keyframes smile {
+  0%, 100% {
+    width: 20px;
+    height: 10px;
+  }
+  50% {
+    width: 24px;
+    height: 12px;
+  }
+}
+
+/* Lueur autour de la sphère */
+.codey-glow {
+  display: none;
+}
+
+/* Particules flottantes */
+.codey-particles {
+  display: none;
+}
+
+.particle {
+  display: none;
+}
+
+.particle-1,
+.particle-2,
+.particle-3 {
+  display: none;
+}
+
+/* Bulle de dialogue */
+.codey-dialog {
+  position: fixed !important;
+  bottom: 130px !important;
+  right: 30px !important;
+  width: 320px;
+  background: rgba(3, 28, 34, 0.94);
+  border: 1px solid rgba(69, 248, 199, 0.35);
+  border-radius: 20px;
+  padding: 1.5rem;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 24px 40px rgba(5, 25, 32, 0.7);
+  z-index: 2147483647 !important;
+  pointer-events: all !important;
+  overflow: visible !important;
+}
+
+.dialog-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  background: rgba(5, 47, 52, 0.8);
+  border: 1px solid rgba(69, 248, 199, 0.35);
+  border-radius: 50%;
+  color: var(--color-text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  font-size: 0.875rem;
+}
+
+.dialog-close:hover {
+  background: var(--gradient-accent);
+  border-color: rgba(69, 248, 199, 0.65);
+  transform: rotate(90deg);
+  color: #013228;
+}
+
+.dialog-content {
+  margin-top: 0.5rem;
+}
+
+.dialog-message {
+  color: var(--color-text);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+.dialog-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.dialog-button {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, rgba(69, 248, 199, 0.2), rgba(66, 198, 255, 0.18));
+  border: 1px solid rgba(69, 248, 199, 0.35);
+  border-radius: 12px;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.dialog-button:hover {
+  background: linear-gradient(135deg, rgba(69, 248, 199, 0.35), rgba(66, 198, 255, 0.3));
+  border-color: rgba(69, 248, 199, 0.6);
+  transform: translateX(5px);
+  box-shadow: 0 0 18px rgba(69, 248, 199, 0.35);
+}
+
+.button-icon {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.dialog-arrow {
+  position: absolute;
+  bottom: -12px;
+  right: 30px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid rgba(69, 248, 199, 0.35);
+  filter: none;
+}
+
+/* Indicateur de notification */
+.notification-dot {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  background: #ff4757;
+  border: 2px solid rgba(3, 28, 34, 0.9);
+  border-radius: 50%;
+  z-index: 2147483647 !important;
+  box-shadow: none;
+}
+
+/* Expressions */
+.codey-avatar.surprised .codey-sphere {
+  animation: surprised 0.5s ease-in-out, gradientShift 6s ease-in-out infinite;
+}
+
+.codey-avatar.thinking .codey-sphere {
+  animation: thinking 2s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
+}
+
+.codey-avatar.thumbsup .codey-sphere {
+  animation: thumbsup 0.6s ease-in-out, gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes surprised {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes thinking {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-3px) rotate(-2deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-3px) rotate(2deg); }
+}
+
+@keyframes thumbsup {
+  0% { transform: scale(1) rotate(0deg); }
+  50% { transform: scale(1.2) rotate(10deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+.codey-thumbsup {
+  position: absolute;
+  top: -20px;
+  right: -10px;
+  font-size: 1.5rem;
+  color: #45f8c7;
+  z-index: 10;
+  filter: none;
+  animation: thumbsupFloat 1s ease-in-out infinite;
+}
+
+@keyframes thumbsupFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(5deg); }
+}
+
+.codey-pointing {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  font-size: 1.5rem;
+  color: #45f8c7;
+  z-index: 10;
+  filter: none;
+  animation: pointingFloat 1s ease-in-out infinite;
+}
+
+@keyframes pointingFloat {
+  0%, 100% { transform: translate(0, 0) rotate(0deg); }
+  50% { transform: translate(3px, -3px) rotate(5deg); }
+}
+
+.codey-waving {
+  position: absolute;
+  top: -25px;
+  right: -15px;
+  font-size: 1.8rem;
+  z-index: 10;
+  filter: none;
+}
+
+/* Gestes */
+.codey-avatar.gesture-pointing .codey-sphere {
+  animation: pointingMotion 1s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
+}
+
+.codey-avatar.gesture-dancing .codey-sphere {
+  animation: dancing 0.8s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
+}
+
+.codey-avatar.gesture-waving .codey-sphere {
+  animation: waving 0.6s ease-in-out infinite, gradientShift 6s ease-in-out infinite;
+}
+
+@keyframes pointingMotion {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.05); }
+}
+
+@keyframes dancing {
+  0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+  25% { transform: translateY(-8px) rotate(-10deg) scale(1.1); }
+  50% { transform: translateY(0) rotate(0deg) scale(1); }
+  75% { transform: translateY(-8px) rotate(10deg) scale(1.1); }
+}
+
+@keyframes waving {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(-5deg); }
+  50% { transform: translateY(0) rotate(0deg); }
+  75% { transform: translateY(-5px) rotate(5deg); }
+}
+
+/* Couleur dynamique selon la section */
+.guide-container.hero .codey-sphere {
+  background: linear-gradient(135deg, #45f8c7 0%, #74ff9d 50%, #45f8c7 100%);
+}
+
+.guide-container.about .codey-sphere {
+  background: linear-gradient(135deg, #47f5de 0%, #74ff9d 50%, #47f5de 100%);
+}
+
+.guide-container.skills .codey-sphere {
+  background: linear-gradient(135deg, #45f8c7 0%, #4fd3ff 50%, #45f8c7 100%);
+}
+
+.guide-container.projects .codey-sphere {
+  background: linear-gradient(135deg, #45f8c7 0%, #61ffb6 50%, #45f8c7 100%);
+}
+
+.guide-container.contact .codey-sphere {
+  background: linear-gradient(135deg, #45f8c7 0%, #9cffe0 50%, #45f8c7 100%);
+}
+
+/* Tooltip contextuel */
+.codey-tooltip {
+  position: fixed !important;
+  bottom: 130px !important;
+  right: 30px !important;
+  width: 280px;
+  background: rgba(3, 28, 34, 0.9);
+  border: 1px solid rgba(69, 248, 199, 0.35);
+  border-radius: 16px;
+  padding: 1rem 1.25rem;
+  backdrop-filter: blur(20px);
+  box-shadow: none;
+  z-index: 2147483647 !important;
+  pointer-events: none;
+  overflow: visible !important;
+}
+
+.codey-tooltip p {
+  color: var(--color-text);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  font-weight: 500;
+}
+
+.tooltip-arrow {
+  position: absolute;
+  bottom: -12px;
+  right: 30px;
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-top: 12px solid rgba(69, 248, 199, 0.35);
+  filter: drop-shadow(0 0 5px rgba(69, 248, 199, 0.35));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .guide-container {
+    bottom: 20px;
+    right: 20px;
+    transform: scale(0.85);
+  }
+
+  .codey-avatar {
+    width: 70px;
+    height: 70px;
+  }
+
+  .codey-dialog {
+    width: 280px;
+    bottom: 100px !important;
+    right: 20px !important;
+    padding: 1.25rem;
+  }
+
+  .dialog-message {
+    font-size: 0.85rem;
+  }
+
+  .dialog-button {
+    padding: 0.625rem 0.875rem;
+    font-size: 0.85rem;
+  }
+
+  .codey-tooltip {
+    width: 250px;
+    bottom: 100px !important;
+    right: 20px !important;
+    padding: 0.875rem 1rem;
+  }
+
+  .codey-tooltip p {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test URLs - Portfolio Christ Ekra</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-item { margin: 10px 0; padding: 10px; border: 1px solid #ddd; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        img { max-width: 200px; max-height: 150px; }
+    </style>
+</head>
+<body>
+    <h1>Test des URLs - Portfolio Christ Ekra</h1>
+    
+    <h2>Images principales</h2>
+    
+    <div class="test-item">
+        <h3>Photo de profil</h3>
+        <p>URL: photo-profil.png</p>
+        <img src="photo-profil.png" alt="Photo de profil" onerror="this.parentElement.className='test-item error'" onload="this.parentElement.className='test-item success'">
+    </div>
+    
+    <div class="test-item">
+        <h3>CV</h3>
+        <p>URL: cv.pdf</p>
+        <a href="cv.pdf" target="_blank">Télécharger CV</a>
+    </div>
+    
+    <h2>Images de projets</h2>
+    
+    <div class="test-item">
+        <h3>FundFlow - Image 1</h3>
+        <p>URL: screenshots/Fund1.png</p>
+        <img src="screenshots/Fund1.png" alt="FundFlow 1" onerror="this.parentElement.className='test-item error'" onload="this.parentElement.className='test-item success'">
+    </div>
+    
+    <div class="test-item">
+        <h3>FundFlow - Image 2</h3>
+        <p>URL: screenshots/fund2.png</p>
+        <img src="screenshots/fund2.png" alt="FundFlow 2" onerror="this.parentElement.className='test-item error'" onload="this.parentElement.className='test-item success'">
+    </div>
+    
+    <div class="test-item">
+        <h3>E-commerce - Image 1</h3>
+        <p>URL: screenshots/mdp1.png</p>
+        <img src="screenshots/mdp1.png" alt="E-commerce 1" onerror="this.parentElement.className='test-item error'" onload="this.parentElement.className='test-item success'">
+    </div>
+    
+    <div class="test-item">
+        <h3>FoodHub - Image 1</h3>
+        <p>URL: screenshots/food1.png</p>
+        <img src="screenshots/food1.png" alt="FoodHub 1" onerror="this.parentElement.className='test-item error'" onload="this.parentElement.className='test-item success'">
+    </div>
+    
+    <script>
+        // Test automatique des URLs
+        console.log('Test des URLs en cours...');
+        
+        const testUrls = [
+            'photo-profil.png',
+            'cv.pdf',
+            'screenshots/Fund1.png',
+            'screenshots/fund2.png',
+            'screenshots/mdp1.png',
+            'screenshots/food1.png'
+        ];
+        
+        testUrls.forEach(url => {
+            fetch(url)
+                .then(response => {
+                    if (response.ok) {
+                        console.log(`✅ ${url} - OK`);
+                    } else {
+                        console.log(`❌ ${url} - Erreur ${response.status}`);
+                    }
+                })
+                .catch(error => {
+                    console.log(`❌ ${url} - Erreur: ${error.message}`);
+                });
+        });
+    </script>
+</body>
+</html>

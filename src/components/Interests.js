@@ -2,9 +2,11 @@ import React from 'react';
 import { 
   FaShieldAlt, FaCode, FaPalette, FaBook, FaMusic 
 } from 'react-icons/fa';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Interests.css';
 
 const Interests = () => {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
   const interests = [
     {
       icon: FaShieldAlt,
@@ -41,11 +43,11 @@ const Interests = () => {
           <p className="section-subtitle">Découvrez mes passions et activités</p>
         </div>
         
-        <div className="interests-grid">
+        <div ref={ref} className={`interests-grid ${isVisible ? 'animate-in' : ''}`}>
           {interests.map((interest, index) => {
             const IconComponent = interest.icon;
             return (
-              <div key={index} className="interest-card">
+              <div key={index} className="interest-card" style={{ animationDelay: `${index * 0.1}s` }}>
                 <div className="interest-icon">
                   <IconComponent />
                 </div>

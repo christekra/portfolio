@@ -3,9 +3,17 @@ import {
   FaMoneyBillWave, FaClock, FaUtensils, 
   FaExternalLinkAlt, FaGithub, FaTimes, FaChevronLeft, FaChevronRight
 } from 'react-icons/fa';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Projects.css';
 
+const getAssetPath = (relativePath = '') => {
+  if (!relativePath) return '';
+  const base = process.env.PUBLIC_URL ? `${process.env.PUBLIC_URL}` : '';
+  return `${base}/${relativePath}`;
+};
+
 const Projects = () => {
+  const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
   const [imageErrors, setImageErrors] = useState({});
   const [modalOpen, setModalOpen] = useState(false);
   const [currentImageSrc, setCurrentImageSrc] = useState('');
@@ -41,7 +49,7 @@ const Projects = () => {
     
     const nextIndex = (currentImageIndex + 1) % currentProject.screenshots.length;
     setCurrentImageIndex(nextIndex);
-    setCurrentImageSrc(currentProject.screenshots[nextIndex]);
+    setCurrentImageSrc(getAssetPath(currentProject.screenshots[nextIndex]));
   };
 
   const prevImage = () => {
@@ -49,17 +57,19 @@ const Projects = () => {
     
     const prevIndex = currentImageIndex === 0 ? currentProject.screenshots.length - 1 : currentImageIndex - 1;
     setCurrentImageIndex(prevIndex);
-    setCurrentImageSrc(currentProject.screenshots[prevIndex]);
+    setCurrentImageSrc(getAssetPath(currentProject.screenshots[prevIndex]));
   };
 
   const projects = [
     {
       id: 1,
       title: 'FundFlow',
-      description: 'Plateforme de crowdfunding pour projets communautaires avec système de paiement intégré Flutterwave.',
+      description: 'Plateforme de crowdfunding moderne permettant aux utilisateurs de financer des projets communautaires. Intégration complète avec Flutterwave pour les paiements sécurisés, système de gestion de campagnes et tableau de bord administrateur.',
       technologies: ['Laravel', 'Tailwind CSS', 'Flutterwave', 'MySQL'],
       icon: FaMoneyBillWave,
       stack: 'Full Stack Laravel',
+      year: '2024',
+      status: 'Complété',
       screenshots: [
         'screenshots/Fund1.png',
         'screenshots/fund2.png',
@@ -71,10 +81,12 @@ const Projects = () => {
     {
       id: 2,
       title: 'E-commerce de montres',
-      description: 'Site e-commerce moderne avec système de commande et notification e-mail automatisée.',
+      description: 'Application e-commerce complète avec catalogue de produits, panier d\'achat, système de commande avancé et notifications e-mail automatisées. Interface utilisateur moderne et expérience d\'achat optimisée.',
       technologies: ['React', 'Laravel', 'MySQL', 'Email API'],
       icon: FaClock,
       stack: 'React + Laravel',
+      year: '2024',
+      status: 'Complété',
       screenshots: [
         'screenshots/mdp1.png',
         'screenshots/mdp2.png',
@@ -85,10 +97,12 @@ const Projects = () => {
     {
       id: 3,
       title: 'FoodHub',
-      description: 'Plateforme de vente de nourriture avec gestion des commandes et livraison.',
+      description: 'Plateforme de livraison de nourriture avec gestion en temps réel des commandes, suivi de livraison, système de paiement intégré et interface mobile-responsive. Optimisé pour une expérience utilisateur fluide.',
       technologies: ['React', 'Laravel', 'MySQL', 'Real-time'],
       icon: FaUtensils,
       stack: 'React + Laravel',
+      year: '2024',
+      status: 'Complété',
       screenshots: [
         'screenshots/food1.png',
         'screenshots/food2.png',
@@ -108,47 +122,82 @@ const Projects = () => {
             <p className="section-subtitle">Découvrez mes réalisations récentes</p>
           </div>
           
-          <div className="projects-grid">
-            {projects.map((project, index) => {
+        <div ref={ref} className={`projects-grid ${isVisible ? 'animate-in' : ''}`}>
+          {projects.map((project, index) => {
               const IconComponent = project.icon;
+              const coverKey = `${project.id}-cover`;
+              const coverHasError = imageErrors[coverKey];
+              const coverRelativePath = project.screenshots?.[0];
+              const coverSrc = !coverHasError && coverRelativePath ? getAssetPath(coverRelativePath) : null;
               return (
                 <div key={project.id} className="project-card" style={{ animationDelay: `${index * 0.2}s` }}>
-                  <div className="project-image">
-                    <div className="project-icon">
-                      <IconComponent />
+                  <div className="project-header">
+                    <div className={`project-image ${coverHasError ? 'fallback' : ''}`}>
+                      {coverSrc && (
+                        <img
+                          src={coverSrc}
+                          alt={`Aperçu du projet ${project.title}`}
+                          className="project-cover"
+                          onError={() => handleImageError(project.id, 'cover')}
+                        />
+                      )}
+                      <div className="project-icon-wrapper">
+                        <IconComponent className="project-icon" />
+                      </div>
+                      <div className="project-badge">
+                        <span className="project-year">{project.year}</span>
+                        <span className="project-status">{project.status}</span>
+                      </div>
                     </div>
-                    <div className="project-stack">
-                      {project.stack}
+                    <div className="project-header-content">
+                      <div className="project-title-wrapper">
+                        <h3 className="project-title">{project.title}</h3>
+                        <span className="project-stack-badge">{project.stack}</span>
+                      </div>
                     </div>
                   </div>
                   <div className="project-content">
-                    <h3 className="project-title">{project.title}</h3>
                     <p className="project-description">{project.description}</p>
                     <div className="project-technologies">
-                      {project.technologies.map(tech => (
-                        <span key={tech} className="tech-tag">{tech}</span>
-                      ))}
+                      <span className="tech-label">Technologies utilisées :</span>
+                      <div className="tech-tags-wrapper">
+                        {project.technologies.map(tech => (
+                          <span key={tech} className="tech-tag">
+                            <span className="tech-tag-dot"></span>
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                     <div className="project-screenshots">
-                      <h4 className="screenshots-title">
-                        Captures d'écran du projet ({project.screenshots.length} images)
-                      </h4>
+                      <div className="screenshots-header">
+                        <h4 className="screenshots-title">
+                          <span className="screenshots-icon">📸</span>
+                          Galerie du projet
+                        </h4>
+                        <span className="screenshots-count">{project.screenshots.length} captures</span>
+                      </div>
                       <div className="screenshots-grid">
                         {project.screenshots.map((screenshot, idx) => {
                           const errorKey = `${project.id}-${idx}`;
                           const hasError = imageErrors[errorKey];
-                          
+                          const screenshotSrc = getAssetPath(screenshot);
+
                           return (
                             <div 
                               key={idx} 
                               className="screenshot-item"
                               data-index={`${idx + 1}`}
                               title={`Cliquez pour agrandir - ${project.title} - Capture ${idx + 1}`}
-                              onClick={() => !hasError && openModal(screenshot, project.title, idx, project)}
+                              onClick={() => !hasError && openModal(screenshotSrc, project.title, idx, project)}
                             >
+                              <div className="screenshot-overlay">
+                                <span className="screenshot-number">{idx + 1}</span>
+                                <span className="screenshot-view">Voir</span>
+                              </div>
                               {!hasError ? (
                                 <img 
-                                  src={screenshot} 
+                                  src={screenshotSrc} 
                                   alt={`${project.title} - Capture ${idx + 1}`}
                                   className="screenshot-image"
                                   onError={() => handleImageError(project.id, idx)}

@@ -129,7 +129,7 @@ const Contact = () => {
                     target="_blank" 
                     rel="noopener noreferrer"
                     download="cv.pdf"
-                    style={{ color: '#3b82f6', textDecoration: 'none' }}
+                    style={{ color: '#ffffff', textDecoration: 'none' }}
                   >
                     Télécharger mon CV
                   </a>

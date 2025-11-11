@@ -1,5 +1,5 @@
 .interests {
-  background: #f8fafc;
+  background: transparent;
   position: relative;
 }
 
@@ -13,43 +13,134 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1), transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.interests-grid.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.interests-grid.animate-in .interest-card {
+  animation: fadeInUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  opacity: 0;
 }
 
 .interest-card {
-  background: #ffffff;
+  background: var(--color-surface);
   padding: 2.5rem;
-  border-radius: 16px;
+  border-radius: 20px;
   text-align: center;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  border: 1px solid #f1f5f9;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(16px);
+}
+
+.interest-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(69, 248, 199, 0.12);
+  transform: translate(-50%, -50%);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1), height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+}
+
+.interest-card:hover::before {
+  width: 300px;
+  height: 300px;
 }
 
 .interest-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  border-color: #e2e8f0;
+  transform: translateY(-8px) scale(1.04);
+  box-shadow: 0 32px 55px rgba(5, 25, 32, 0.7);
+  border-color: rgba(69, 248, 199, 0.55);
+  animation: interestBounce 0.6s ease;
+}
+
+@keyframes interestBounce {
+  0%, 100% {
+    transform: translateY(-8px) scale(1.04);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.06);
+  }
 }
 
 .interest-icon {
   font-size: 3rem;
-  color: #3b82f6;
+  color: var(--color-text);
   margin-bottom: 1.5rem;
   display: block;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: iconFloat 3s ease-in-out infinite;
+  text-shadow: 0 0 25px rgba(69, 248, 199, 0.25);
+}
+
+.interest-card:nth-child(1) .interest-icon {
+  animation-delay: 0s;
+}
+
+.interest-card:nth-child(2) .interest-icon {
+  animation-delay: 0.5s;
+}
+
+.interest-card:nth-child(3) .interest-icon {
+  animation-delay: 1s;
+}
+
+.interest-card:nth-child(4) .interest-icon {
+  animation-delay: 1.5s;
+}
+
+.interest-card:nth-child(5) .interest-icon {
+  animation-delay: 2s;
+}
+
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(5deg);
+  }
+}
+
+.interest-card:hover .interest-icon {
+  transform: scale(1.2) rotate(15deg);
+  animation: iconSpin 0.5s ease;
+}
+
+@keyframes iconSpin {
+  0% {
+    transform: scale(1.2) rotate(15deg);
+  }
+  100% {
+    transform: scale(1.2) rotate(25deg);
+  }
 }
 
 .interest-title {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #1a1a1a;
+  color: var(--color-text);
   margin-bottom: 1rem;
   letter-spacing: -0.025em;
 }
 
 .interest-description {
-  color: #6b7280;
+  color: var(--color-text-muted);
   line-height: 1.6;
   font-size: 1rem;
 }
