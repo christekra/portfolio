@@ -1,6 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './Terminal.css';
 
+const TERMINAL_COMMANDS = [
+  { type: 'command', text: 'myphz@archlinux:$ whoami', typingSpeed: 20 },
+  { type: 'output', text: 'christ', delay: 150 },
+  { type: 'command', text: 'myphz@archlinux:$ cd portfolio', typingSpeed: 20 },
+  { type: 'output', text: '', delay: 100 },
+  { type: 'command', text: 'myphz@archlinux:$ npm run dev', typingSpeed: 20 },
+  { type: 'output', text: 'Server starting...', delay: 200 },
+  { type: 'output', text: '✓ Compiled successfully', delay: 200 },
+  { type: 'output', text: 'Portfolio loaded!', delay: 300 },
+];
+
 const Terminal = ({ onComplete }) => {
   const [displayedLines, setDisplayedLines] = useState([]);
   const [currentCommandIndex, setCurrentCommandIndex] = useState(0);
@@ -64,26 +75,15 @@ const Terminal = ({ onComplete }) => {
     }
   };
 
-  const terminalCommands = [
-    { type: 'command', text: 'myphz@archlinux:$ whoami', typingSpeed: 20 },
-    { type: 'output', text: 'christ', delay: 150 },
-    { type: 'command', text: 'myphz@archlinux:$ cd portfolio', typingSpeed: 20 },
-    { type: 'output', text: '', delay: 100 },
-    { type: 'command', text: 'myphz@archlinux:$ npm run dev', typingSpeed: 20 },
-    { type: 'output', text: 'Server starting...', delay: 200 },
-    { type: 'output', text: '✓ Compiled successfully', delay: 200 },
-    { type: 'output', text: 'Portfolio loaded!', delay: 300 },
-  ];
-
   useEffect(() => {
-    if (currentCommandIndex >= terminalCommands.length) {
+    if (currentCommandIndex >= TERMINAL_COMMANDS.length) {
       const confirmTimer = setTimeout(() => {
         setShowConfirmation(true);
       }, 800);
       return () => clearTimeout(confirmTimer);
     }
 
-    const command = terminalCommands[currentCommandIndex];
+    const command = TERMINAL_COMMANDS[currentCommandIndex];
 
     if (command.type === 'command') {
       // Commencer à taper la commande
@@ -120,7 +120,7 @@ const Terminal = ({ onComplete }) => {
 
       return () => clearTimeout(outputTimer);
     }
-  }, [currentCommandIndex, terminalCommands]);
+  }, [currentCommandIndex]);
 
   useEffect(() => {
     // Auto-scroll vers le bas
@@ -172,7 +172,7 @@ const Terminal = ({ onComplete }) => {
               <span className={`terminal-cursor ${showCursor ? 'visible' : ''}`}>█</span>
             </div>
           )}
-          {!isTyping && currentCommandIndex < terminalCommands.length && !showConfirmation && (
+          {!isTyping && currentCommandIndex < TERMINAL_COMMANDS.length && !showConfirmation && (
             <div className="terminal-line command">
               <span className="terminal-prompt">myphz@archlinux:$ </span>
               <span className={`terminal-cursor ${showCursor ? 'visible' : ''}`}>█</span>
