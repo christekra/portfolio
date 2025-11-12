@@ -1,10 +1,13 @@
 import React from 'react';
-import { 
-  FaLaravel, FaReact, FaAngular, FaPhp, FaJs, 
-  FaHtml5, FaGitAlt, 
-  FaDocker, FaGithub, FaShieldAlt 
+import {
+  FaLaravel, FaReact, FaAngular, FaPhp, FaJs,
+  FaHtml5, FaGitAlt,
+  FaDocker, FaGithub, FaShieldAlt, FaSearch, FaInfinity
 } from 'react-icons/fa';
-import { SiC, SiMysql, SiPostgresql, SiMongodb, SiRedis, SiTailwindcss, SiBootstrap } from 'react-icons/si';
+import {
+  SiC, SiMysql, SiPostgresql, SiMongodb, SiRedis,
+  SiTailwindcss, SiBootstrap, SiFlutter
+} from 'react-icons/si';
 import { DiDotnet } from 'react-icons/di';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Skills.css';
@@ -13,7 +16,10 @@ const Skills = () => {
   const [ref, isVisible] = useScrollAnimation({ threshold: 0.1 });
   const skills = [
     { name: 'Laravel', level: 90, category: 'Backend', icon: FaLaravel, experience: 'Expert' },
+    { name: 'Laravel Sanctum & Passport', level: 88, category: 'Backend', icon: FaShieldAlt, experience: 'Expert' },
+    { name: 'Laravel Livewire', level: 85, category: 'Backend', icon: FaLaravel, experience: 'Avancé' },
     { name: 'React', level: 85, category: 'Frontend', icon: FaReact, experience: 'Avancé' },
+    { name: 'Inertia.js', level: 82, category: 'Frontend', icon: FaInfinity, experience: 'Avancé' },
     { name: 'Angular', level: 80, category: 'Frontend', icon: FaAngular, experience: 'Avancé' },
     { name: 'PHP', level: 90, category: 'Backend', icon: FaPhp, experience: 'Expert' },
     { name: 'JavaScript', level: 85, category: 'Frontend', icon: FaJs, experience: 'Avancé' },
@@ -27,9 +33,13 @@ const Skills = () => {
     { name: 'Tailwind CSS', level: 80, category: 'Frontend', icon: SiTailwindcss, experience: 'Avancé' },
     { name: 'Bootstrap', level: 85, category: 'Frontend', icon: SiBootstrap, experience: 'Avancé' },
     { name: 'Git', level: 90, category: 'Tools', icon: FaGitAlt, experience: 'Expert' },
+    { name: 'GitHub', level: 90, category: 'Tools', icon: FaGithub, experience: 'Expert' },
     { name: 'Docker', level: 75, category: 'Tools', icon: FaDocker, experience: 'Avancé' },
-    { name: 'GitHub Actions', level: 70, category: 'Tools', icon: FaGithub, experience: 'Intermédiaire' },
-    { name: 'JWT/OAuth', level: 75, category: 'Sécurité', icon: FaShieldAlt, experience: 'Avancé' }
+    { name: 'GitHub Actions (CI/CD)', level: 75, category: 'Tools', icon: FaGithub, experience: 'Avancé' },
+    { name: 'SEO & Optimisation', level: 80, category: 'Tools', icon: FaSearch, experience: 'Avancé' },
+    { name: 'JWT/OAuth', level: 75, category: 'Sécurité', icon: FaShieldAlt, experience: 'Avancé' },
+    { name: 'Flutter', level: 78, category: 'Mobile', icon: SiFlutter, experience: 'Avancé' },
+    { name: 'React Native', level: 80, category: 'Mobile', icon: FaReact, experience: 'Avancé' }
   ];
 
   const categories = [
@@ -37,7 +47,8 @@ const Skills = () => {
     { name: 'Backend', icon: '⚙️', description: 'Technologies serveur et API' },
     { name: 'Database', icon: '💾', description: 'Gestion et optimisation des données' },
     { name: 'Tools', icon: '🛠️', description: 'Outils de développement et DevOps' },
-    { name: 'Sécurité', icon: '🔒', description: 'Sécurité et authentification' }
+    { name: 'Sécurité', icon: '🔒', description: 'Sécurité et authentification' },
+    { name: 'Mobile', icon: '📱', description: 'Applications mobiles et cross-platform' }
   ];
 
   return (

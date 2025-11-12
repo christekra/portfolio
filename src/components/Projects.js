@@ -1,13 +1,16 @@
 import React, { useState } from 'react';
-import { 
-  FaMoneyBillWave, FaClock, FaUtensils, 
-  FaTimes, FaChevronLeft, FaChevronRight
+import {
+  FaMoneyBillWave, FaClock, FaUtensils,
+  FaShoppingBag, FaTimes, FaChevronLeft, FaChevronRight
 } from 'react-icons/fa';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import './Projects.css';
 
 const getAssetPath = (relativePath = '') => {
   if (!relativePath) return '';
+  if (/^https?:\/\//i.test(relativePath)) {
+    return relativePath;
+  }
   const base = process.env.PUBLIC_URL ? `${process.env.PUBLIC_URL}` : '';
   return `${base}/${relativePath}`;
 };
@@ -70,6 +73,8 @@ const Projects = () => {
       stack: 'Full Stack Laravel',
       year: '2024',
       status: 'Complété',
+      liveUrl: 'https://github.com/christekra',
+      liveLabel: 'Voir FundFlow sur GitHub',
       screenshots: [
         'screenshots/Fund1.png',
         'screenshots/fund2.png',
@@ -80,19 +85,23 @@ const Projects = () => {
     },
     {
       id: 2,
-      title: 'E-commerce de montres',
-      description: 'Application e-commerce complète avec catalogue de produits, panier d\'achat, système de commande avancé et notifications e-mail automatisées. Interface utilisateur moderne et expérience d\'achat optimisée.',
-      technologies: ['React', 'Laravel', 'MySQL', 'Email API'],
+      title: 'Maison des Poignets',
+      description: 'Plateforme e-commerce dédiée aux montres et bracelets haut de gamme : catalogue détaillé, gestion des commandes et intégration paiement en ligne. Optimisée pour le SEO et entièrement hébergée par mes soins.',
+      technologies: ['React', 'Laravel', 'MySQL', 'SEO', 'Paiement en ligne'],
       icon: FaClock,
       stack: 'React + Laravel',
       year: '2024',
-      status: 'Complété',
+      status: 'En ligne',
+      liveUrl: 'https://www.mpoignets.online',
+      liveLabel: 'Visiter mpoignets.online',
       screenshots: [
-        'screenshots/mdp1.png',
-        'screenshots/mdp2.png',
-        'screenshots/mdp3.png',
-        'screenshots/mdp4.png'
-      ]
+        'screenshots/mpoignet1.png',
+        'screenshots/mpoignet2.png',
+        'screenshots/mpoignet3.png',
+        'screenshots/mpoignet4.png',
+        'screenshots/mpoignet5.png'
+      ],
+      hostingNote: 'Projet développé, déployé et maintenu par mes soins.'
     },
     {
       id: 3,
@@ -103,6 +112,8 @@ const Projects = () => {
       stack: 'React + Laravel',
       year: '2024',
       status: 'Complété',
+      liveUrl: 'https://github.com/christekra',
+      liveLabel: 'Voir FoodHub sur GitHub',
       screenshots: [
         'screenshots/food1.png',
         'screenshots/food2.png',
@@ -110,6 +121,26 @@ const Projects = () => {
         'screenshots/food4.png',
         'screenshots/food5.png'
       ]
+    },
+    {
+      id: 4,
+      title: 'BabiJersey',
+      description: 'Boutique en ligne spécialisée dans les maillots personnalisés, conçue de A à Z : catalogue dynamique, gestion des stocks, paiements sécurisés et automatisation des commandes. Déploiement complet et hébergement gérés par mes soins.',
+      technologies: ['Laravel', 'React', 'Tailwind CSS', 'MySQL', 'SEO', 'CI/CD'],
+      icon: FaShoppingBag,
+      stack: 'Laravel + React + SEO',
+      year: '2025',
+      status: 'En ligne',
+      liveUrl: 'https://www.babijersey.com',
+      liveLabel: 'Visiter www.babijersey.com',
+      screenshots: [
+        'screenshots/babijersey1.png',
+        'screenshots/babijersey2.png',
+        'screenshots/babijersey3.png',
+        'screenshots/babijersey4.png',
+        'screenshots/babijersey5.png'
+      ],
+      hostingNote: 'Site développé, déployé et hébergé par mes soins.'
     }
   ];
 
@@ -169,6 +200,22 @@ const Projects = () => {
                         ))}
                       </div>
                     </div>
+                    {project.liveUrl && (
+                      <div className="project-links">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="project-link-button"
+                        >
+                          <span className="project-link-icon">🌐</span>
+                          <span>{project.liveLabel || 'Voir le site en ligne'}</span>
+                        </a>
+                        {project.hostingNote && (
+                          <span className="project-hosting-note">{project.hostingNote}</span>
+                        )}
+                      </div>
+                    )}
                     <div className="project-screenshots">
                       <div className="screenshots-header">
                         <h4 className="screenshots-title">

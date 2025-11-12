@@ -24,6 +24,8 @@ const Contact = () => {
     });
   };
 
+  const cvSrc = process.env.PUBLIC_URL ? `${process.env.PUBLIC_URL}/cv.pdf` : '/cv.pdf';
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -125,10 +127,10 @@ const Contact = () => {
                 <div className="contact-details">
                   <h4>CV</h4>
                   <a 
-                    href="cv.pdf" 
+                    href={cvSrc} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    download="cv.pdf"
+                    download="CV_Christ_Ekra.pdf"
                     style={{ color: '#ffffff', textDecoration: 'none' }}
                   >
                     Télécharger mon CV

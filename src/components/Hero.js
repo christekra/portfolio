@@ -22,7 +22,7 @@ const Hero = () => {
   // Pour changer le CV, remplacez le chemin ci-dessous :
   // - CV local : "/votre-cv.pdf" (placez le fichier dans public/)
   // - URL externe : "https://votre-url.com/cv.pdf"
-  const cvSrc = "cv.pdf";
+  const cvSrc = process.env.PUBLIC_URL ? `${process.env.PUBLIC_URL}/cv.pdf` : '/cv.pdf';
 
   return (
     <section id="hero" className="hero">
@@ -78,7 +78,7 @@ const Hero = () => {
               >
                 <span className="btn-content">
                   <FaDownload />
-                <span>Télécharger CV</span>
+                  <span>Télécharger mon CV</span>
                 </span>
                 <span className="btn-underline"></span>
                 <span className="btn-ripple"></span>

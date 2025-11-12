@@ -11,7 +11,7 @@ const Footer = () => {
             <h3>Christ Ekra</h3>
             <p>Développeur Web Full Stack passionné par la création d'applications modernes et performantes. Spécialisé en Laravel, React et Angular.</p>
             <div className="social-links">
-              <a href="mailto:chtistekra@gmail.com" className="social-link" title="Email">
+              <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new&to=chtistekra@gmail.com" className="social-link" title="Email">
                 <FaEnvelope />
               </a>
               <a
