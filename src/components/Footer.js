@@ -14,7 +14,13 @@ const Footer = () => {
               <a href="mailto:chtistekra@gmail.com" className="social-link" title="Email">
                 <FaEnvelope />
               </a>
-              <a href="https://linkedin.com/in/christ-ekra" target="_blank" rel="noopener noreferrer" className="social-link" title="LinkedIn">
+              <a
+                href="https://www.linkedin.com/in/christ-ekra-399841307"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+                title="LinkedIn"
+              >
                 <FaLinkedin />
               </a>
               <a href="https://github.com/christekra" target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub">
