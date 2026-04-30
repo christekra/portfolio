@@ -9,7 +9,6 @@ import Projects from './components/Projects';
 import Interests from './components/Interests';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Guide from './components/Guide';
 
 function App() {
   const [showTerminal, setShowTerminal] = useState(true);
@@ -37,7 +36,6 @@ function App() {
             <Contact />
           </main>
           <Footer />
-          <Guide />
         </>
       )}
     </div>

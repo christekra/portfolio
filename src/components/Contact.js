@@ -77,8 +77,8 @@ const Contact = () => {
     <section id="contact" className="contact">
       <div className="contact-container">
         <div className="section-header">
-          <h2 className="section-title">Contact</h2>
-          <p className="section-subtitle">N'hésitez pas à me contacter pour vos projets</p>
+          <span className="section-label">Contact</span>
+          <h2 className="section-title">Travaillons ensemble</h2>
         </div>
         
         <div className="contact-content">
@@ -106,7 +106,7 @@ const Contact = () => {
                 </div>
                 <div className="contact-details">
                   <h4>Téléphone</h4>
-                  <p>+225 07 14 42 50 34</p>
+                  <p>+225 0545350377</p>
                 </div>
               </div>
               

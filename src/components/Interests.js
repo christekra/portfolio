@@ -39,8 +39,8 @@ const Interests = () => {
     <section id="interests" className="interests">
       <div className="interests-container">
         <div className="section-header">
+          <span className="section-label">Passions</span>
           <h2 className="section-title">Centres d'intérêt</h2>
-          <p className="section-subtitle">Découvrez mes passions et activités</p>
         </div>
         
         <div ref={ref} className={`interests-grid ${isVisible ? 'animate-in' : ''}`}>

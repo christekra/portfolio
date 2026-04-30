@@ -8,10 +8,10 @@ const Footer = () => {
       <div className="footer-container">
         <div className="footer-content">
           <div className="footer-section">
-            <h3>Christ Ekra</h3>
-            <p>Développeur Web Full Stack passionné par la création d'applications modernes et performantes. Spécialisé en Laravel, React et Angular.</p>
+            <h3>Christ <span>Ekra</span></h3>
+            <p>Développeur Full Stack spécialisé Laravel, React et Angular. Je construis des applications web modernes et performantes.</p>
             <div className="social-links">
-              <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new&to=chtistekra@gmail.com" className="social-link" title="Email">
+              <a href="mailto:chtistekra@gmail.com" className="social-link" title="Email" aria-label="Email">
                 <FaEnvelope />
               </a>
               <a
@@ -20,37 +20,45 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="social-link"
                 title="LinkedIn"
+                aria-label="LinkedIn"
               >
                 <FaLinkedin />
               </a>
-              <a href="https://github.com/christekra" target="_blank" rel="noopener noreferrer" className="social-link" title="GitHub">
+              <a
+                href="https://github.com/christekra"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-link"
+                title="GitHub"
+                aria-label="GitHub"
+              >
                 <FaGithub />
               </a>
             </div>
           </div>
-          
+
           <div className="footer-section">
             <h4>Compétences</h4>
             <ul>
-              <li>Développement Frontend</li>
-              <li>Développement Backend</li>
+              <li>Frontend</li>
+              <li>Backend</li>
               <li>Bases de données</li>
-              <li>DevOps & Outils</li>
-              <li>Sécurité informatique</li>
+              <li>DevOps</li>
+              <li>Cybersécurité</li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Technologies</h4>
             <ul>
               <li>Laravel & PHP</li>
               <li>React & Angular</li>
-              <li>MySQL & SQL</li>
+              <li>MySQL & PostgreSQL</li>
               <li>Git & Docker</li>
               <li>Tailwind CSS</li>
             </ul>
           </div>
-          
+
           <div className="footer-section">
             <h4>Contact</h4>
             <ul>
@@ -61,9 +69,9 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-        
+
         <div className="footer-bottom">
-          <p>&copy; 2024 Christ Ekra. Tous droits réservés.</p>
+          <p>&copy; {new Date().getFullYear()} Christ Ekra — Tous droits réservés.</p>
         </div>
       </div>
     </footer>

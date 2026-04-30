@@ -55,9 +55,10 @@ const Skills = () => {
     <section id="skills" className="skills">
       <div className="skills-container">
         <div className="section-header">
-          <h2 className="section-title">COMPÉTENCES</h2>
-          <p className="section-subtitle">
-            Mes technologies et outils préférés pour créer des applications modernes et performantes
+          <span className="section-label">Stack technique</span>
+          <h2 className="section-title">Compétences</h2>
+          <p className="section-subtitle" style={{ marginTop: '1rem' }}>
+            Technologies et outils que j'utilise pour créer des applications modernes
           </p>
         </div>
         
